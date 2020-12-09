@@ -14,7 +14,8 @@
     "dev": "node api/src/index-dev.js",
     "lint": "node ./node_modules/eslint/bin/eslint . --ext .js --ext .jsx",
     "deploy": "set NODE_ENV=production&& webpack -p",
-    "clean": "rm -rf app/dist app/build"
+    "clean": "rm -rf app/dist app/build",
+    "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
@@ -103,5 +104,8 @@
     "redux-devtools": "^3.3.1",
     "sequelize-cli": "^2.4.0",
     "webpack-dev-server": "^1.14.1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }
