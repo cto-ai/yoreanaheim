@@ -1,6 +1,6 @@
 {
   "development": {
-    "use_env_variable": "DATABASE_URL",
+    "url": "postgres://postgres:12341234@0.0.0.0:5432/gazetteer",
     "dialect": "postgres"
   },
   "test": {
