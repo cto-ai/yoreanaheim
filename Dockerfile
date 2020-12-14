@@ -1,23 +1,14 @@
-FROM node:12-slim
+FROM registry.cto.ai/official_images/node:2-12.13.1-stretch-slim 
 
-# Install libs, create working dir, and set the internal npm registry
+WORKDIR /ops
+
+USER root
 RUN apt-get update && \
-    apt-get install -y --force-yes --no-install-recommends libpq-dev && \
+    apt-get install -y --force-yes --no-install-recommends gcc make libpng-dev && \
     apt-get clean && apt-get autoclean && \
     mkdir -p /app 
 
-
-# Set working dir
-WORKDIR /app
-
-# Add app code
-COPY . /app
-
-# Install modules
+ADD package.json .
 RUN npm install --production
 
-# Run Migrations
-# RUN npx sequelize db:migrate && \
-    # npx sequelize db:seed:all
-
-CMD ["npm", "start"]
+ADD . .
