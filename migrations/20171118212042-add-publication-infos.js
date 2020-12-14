@@ -2,22 +2,24 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-      queryInterface.addColumn(
-        'publications',
-        'about_excerpt',
-        {
-          type: Sequelize.TEXT,
-          allowNull: true
-        }
-      ),
-      queryInterface.addColumn(
-        'publications',
-        'about',
-        {
-          type: Sequelize.TEXT,
-          allowNull: true
-        }
-      )
+    return queryInterface.sequelize.transaction((t) => {
+      return Promise.all([
+        queryInterface.addColumn(
+          'publications',
+          'about_excerpt',
+          {
+            type: Sequelize.TEXT,
+            allowNull: true
+          }, { transaction: t }),
+        queryInterface.addColumn(
+          'publications',
+          'about',
+          {
+            type: Sequelize.TEXT,
+            allowNull: true
+          }, { transaction: t })
+      ])
+    })
   },
 
   down: function (queryInterface, Sequelize) {
