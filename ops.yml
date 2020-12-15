@@ -2,7 +2,7 @@
 version: "1"
 services:
   # Unique identifier for your op (required)
-  - name: zillow-op:0.1.1
+  - name: zillow-op:0.1.5
     # Determines whether this version of the op is visible to other people
     public: false
     # Short description for what your op does (required)

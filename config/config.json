@@ -1,10 +1,14 @@
 {
   "development": {
-    "url": "postgres://kmmuxtolxnvtiv:afcc640b23463f380d9c4fb67bdca8ccbbaebd65e1bb75b42c16f0061af38fb9@ec2-54-147-126-202.compute-1.amazonaws.com:5432/dbrkcmrndbkmr3?sslmode=require",
+    "username": "kmmuxtolxnvtiv",
+    "password": "afcc640b23463f380d9c4fb67bdca8ccbbaebd65e1bb75b42c16f0061af38fb9",
+    "database": "dbrkcmrndbkmr3",
+    "host": "ec2-54-147-126-202.compute-1.amazonaws.com",
     "dialect": "postgres",
+    "protocol": "postgres",
     "dialectOptions": {
       "ssl": {
-          "rejectUnauthorized": false
+        "require": true
       }
     }
   },
@@ -13,11 +17,15 @@
     "dialect": "postgres"
   },
   "production": {
-    "url": "postgres://kmmuxtolxnvtiv:afcc640b23463f380d9c4fb67bdca8ccbbaebd65e1bb75b42c16f0061af38fb9@ec2-54-147-126-202.compute-1.amazonaws.com:5432/dbrkcmrndbkmr3?sslmode=require",
+    "username": "kmmuxtolxnvtiv",
+    "password": "afcc640b23463f380d9c4fb67bdca8ccbbaebd65e1bb75b42c16f0061af38fb9",
+    "database": "dbrkcmrndbkmr3",
+    "host": "ec2-54-147-126-202.compute-1.amazonaws.com",
     "dialect": "postgres",
+    "protocol": "postgres",
     "dialectOptions": {
       "ssl": {
-          "rejectUnauthorized": false
+        "require": true
       }
     }
   }

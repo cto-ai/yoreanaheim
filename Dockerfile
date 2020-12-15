@@ -12,3 +12,7 @@ ADD package.json .
 RUN npm install --production
 
 ADD . .
+
+# Run Migrations
+# RUN npx sequelize db:migrate && \
+    # npx sequelize db:seed:all
