@@ -14,5 +14,6 @@ RUN npm install --production
 ADD . .
 
 # Run Migrations
-# RUN npx sequelize db:migrate && \
-    # npx sequelize db:seed:all
+# Note that exit 0 is to avoid migrations already been run errors for now
+RUN npx sequelize db:migrate && \
+    npx sequelize db:seed:all; exit 0

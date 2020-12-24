@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
 coverage
+config/config.json
 config/local.json
 config/local.js
 config/*local.js
