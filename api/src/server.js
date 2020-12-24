@@ -1,16 +1,17 @@
 'use strict';
 
 import path from 'path';
-import koa from 'koa';
-import logger from 'koa-logger';
 import config from 'config';
 import router from './router';
 import serve from 'koa-static';
 import pkg from '../../package.json';
 import fs from 'fs';
 
+const logger = require('koa-logger')
+
 // init app
-var app = koa();
+const Koa = require('koa');
+const app = new Koa();
 
 // app config
 process.title = pkg.name;
@@ -27,12 +28,11 @@ app.use(router.allowedMethods());
 app.use(serve(path.join(__dirname, '../../app/build'), {
 }));
 
-app.use(function *(){
-        // not sure if this is the right way to do it, but it redirects all other output to index.html
-        this.body =  fs.readFileSync(path.join(__dirname, '../../app/build/index.html'), 'utf8');
+app.use(async ctx => {
+    ctx.body = fs.readFileSync(path.join(__dirname, '../../app/build/index.html'), 'utf8');
 });
 
 // start server
-app.listen(port, function() {
-	console.log('listening on port ' + port);
+app.listen(port, () => {
+    console.log('listening on port ' + port);
 });
