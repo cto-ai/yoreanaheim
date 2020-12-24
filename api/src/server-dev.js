@@ -29,7 +29,7 @@ new webpackDevServer(webpack(webpackConfig), {
         hot: true,
         historyApiFallback: true,
         proxy: {
-                "/api/*": "http://localhost:3000"
+                "/api/*": "http://localhost:8000"
         }
 }).listen(3001, 'localhost', function (err, result) {
         if (err) {
