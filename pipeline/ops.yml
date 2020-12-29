@@ -1,0 +1,23 @@
+version: "1"
+pipelines:
+    - name: zillow-pipeline:0.1.0
+      description: Pipeline to run Zillow database migrations
+      jobs:
+          - name: zillow-pipeline-step-1
+            description: Migrations
+            sdk: "2"
+            packages: ["git", "npm", "libpng-dev"]
+            steps:
+                - printf "<--- SETUP START --->"
+                - git clone https://github.com/cto-ai/yoreanaheim.git
+                - cd yoreanaheim
+                - export DB_NAME=$(sdk secret get DB_NAME)
+                - export DB_USER=$(sdk secret get DB_USER)
+                - export DB_PASSWORD=$(sdk secret get DB_PASSWORD)
+                - export DB_HOST=$(sdk secret get DB_HOST)
+                - export DATABASE_URL=postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:5432/$DB_NAME
+                - export NODE_ENV=production
+                - npm install --production
+                - npx sequelize db:migrate
+                - npx sequelize db:seed:all
+                - printf "<--- END --->"
