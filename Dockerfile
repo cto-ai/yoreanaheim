@@ -1,6 +1,7 @@
 FROM registry.cto.ai/official_images/node:2-12.13.1-stretch-slim 
 
 ENV NODE_ENV="production"
+ENV DATABASE_URL="postgres://{DB_USER}:{DB_PASS}@{DB_HOST}:5432/{DB_DATABASE}"
 
 WORKDIR /ops
 
@@ -14,10 +15,3 @@ ADD package.json .
 RUN npm install --production
 ADD . .
 RUN npm run build
-
-
-
-# Run Migrations
-# Note that exit 0 is to avoid migrations already been run errors for now
-RUN npx sequelize db:migrate && \
-    npx sequelize db:seed:all; exit 0
