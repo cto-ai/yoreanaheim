@@ -1,23 +1,14 @@
 {
     "development": {
-        "username": "zillow",
-        "password": "Lg9UcxGEt6q47MrjDpqa2dRkESdQuehq",
-        "database": "zillow",
-        "host": "staging-poc-clusterinstance1.cnljxyv0hjqz.us-west-2.rds.amazonaws.com",
+        "use_env_variable": "DATABASE_URL",
         "dialect": "postgres"
     },
     "test": {
-        "username": "root",
-        "password": null,
-        "database": "database_test",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+        "use_env_variable": "DATABASE_URL",
+        "dialect": "postgres"
     },
     "production": {
-        "username": "zillow",
-        "password": "Lg9UcxGEt6q47MrjDpqa2dRkESdQuehq",
-        "database": "zillow",
-        "host": "staging-poc-clusterinstance1.cnljxyv0hjqz.us-west-2.rds.amazonaws.com",
+        "use_env_variable": "DATABASE_URL",
         "dialect": "postgres"
     }
 }
