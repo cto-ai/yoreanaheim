@@ -1,6 +1,6 @@
 version: "1"
 pipelines:
-    - name: zillow-pipeline:0.1.0
+    - name: zillow-pipeline:1.0.0
       description: Pipeline to run Zillow database migrations
       jobs:
           - name: zillow-pipeline-step-1
